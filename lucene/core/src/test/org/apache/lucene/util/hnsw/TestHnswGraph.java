@@ -571,8 +571,8 @@ public class TestHnswGraph extends LuceneTestCase {
         HnswGraphBuilder.create(
             vectors, vectorEncoding, similarityFunction, 2, 10, random().nextInt());
     // node 0 is added by the builder constructor
-    // builder.addGraphNode(vectors.vectorValue(0));
     RandomAccessVectorValues vectorsCopy = vectors.copy();
+    builder.addGraphNode(0, vectorsCopy);
     builder.addGraphNode(1, vectorsCopy);
     builder.addGraphNode(2, vectorsCopy);
     // now every node has tried to attach every other node as a neighbor, but
@@ -627,9 +627,8 @@ public class TestHnswGraph extends LuceneTestCase {
     HnswGraphBuilder<?> builder =
         HnswGraphBuilder.create(
             vectors, vectorEncoding, similarityFunction, 1, 10, random().nextInt());
-    // node 0 is added by the builder constructor
-    // builder.addGraphNode(vectors.vectorValue(0));
     RandomAccessVectorValues vectorsCopy = vectors.copy();
+    builder.addGraphNode(0, vectorsCopy);
     builder.addGraphNode(1, vectorsCopy);
     builder.addGraphNode(2, vectorsCopy);
     assertLevel0Neighbors(builder.hnsw, 0, 1, 2);
@@ -661,9 +660,8 @@ public class TestHnswGraph extends LuceneTestCase {
     HnswGraphBuilder<?> builder =
         HnswGraphBuilder.create(
             vectors, vectorEncoding, similarityFunction, 1, 10, random().nextInt());
-    // node 0 is added by the builder constructor
-    // builder.addGraphNode(vectors.vectorValue(0));
     RandomAccessVectorValues vectorsCopy = vectors.copy();
+    builder.addGraphNode(0, vectorsCopy);
     builder.addGraphNode(1, vectorsCopy);
     builder.addGraphNode(2, vectorsCopy);
     assertLevel0Neighbors(builder.hnsw, 0, 1, 2);
