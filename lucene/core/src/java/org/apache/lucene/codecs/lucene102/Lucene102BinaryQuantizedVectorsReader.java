@@ -104,7 +104,7 @@ class Lucene102BinaryQuantizedVectorsReader extends FlatVectorsReader {
               // Quantized vectors are accessed randomly from their node ID stored in the HNSW
               // graph.
               state.context.withHints(
-                  FileTypeHint.DATA, FileDataHint.KNN_VECTORS, DataAccessHint.RANDOM));
+                  FileTypeHint.DATA, FileDataHint.KNN_VECTORS, DataAccessHint.SEQUENTIAL));
     } catch (Throwable t) {
       IOUtils.closeWhileSuppressingExceptions(t, this);
       throw t;

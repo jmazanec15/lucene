@@ -79,7 +79,7 @@ public final class Lucene99FlatVectorsReader extends FlatVectorsReader {
               // Flat formats are used to randomly access vectors from their node ID that is stored
               // in the HNSW graph.
               state.context.withHints(
-                  FileTypeHint.DATA, FileDataHint.KNN_VECTORS, DataAccessHint.RANDOM));
+                  FileTypeHint.DATA, FileDataHint.KNN_VECTORS, DataAccessHint.SEQUENTIAL));
     } catch (Throwable t) {
       IOUtils.closeWhileSuppressingExceptions(t, this);
       throw t;
